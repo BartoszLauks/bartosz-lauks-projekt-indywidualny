@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  bartosz-lauks-projekt-indywidualny-mysql:
+    container_name: bartosz-lauks-projekt-indywidualny-mysql-dev
+    ports:
+      - '33063:3306'
+
+  bartosz-lauks-projekt-indywidualny-php:
+    container_name: bartosz-lauks-projekt-indywidualny-php-dev
+    environment:
+      APP_ENV: dev
+      APP_VERSION: dev
+      DATABASE_URL: mysql://root:@bartosz-lauks-projekt-indywidualny-mysql:3306/bartosz-lauks-projekt-indywidualny_dev
+
+  bartosz-lauks-projekt-indywidualny-nginx:
+    container_name: bartosz-lauks-projekt-indywidualny-nginx-dev
+    ports:
+      - '8083:80'

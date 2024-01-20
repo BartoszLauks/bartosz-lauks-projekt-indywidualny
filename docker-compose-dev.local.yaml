@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  bartosz-lauks-projekt-indywidualny-mysql:
+    container_name: bartosz-lauks-projekt-indywidualny-mysql-dev-local
+    ports:
+      - '33060:3306'
+  bartosz-lauks-projekt-indywidualny-php:
+    container_name: bartosz-lauks-projekt-indywidualny-php-dev-local
+    ports:
+      - '2222:22'
+    volumes:
+      - bartosz-lauks-projekt-indywidualny-api-vendor-sync:/app/vendor
+      - bartosz-lauks-projekt-indywidualny-api-app-sync:/app
+    environment:
+      APP_ENV: dev
+      APP_VERSION: dev
+      DATABASE_URL: mysql://root:@bartosz-lauks-projekt-indywidualny-mysql:3306/bartosz-lauks-projekt-indywidualny
+
+  bartosz-lauks-projekt-indywidualny-nginx:
+    container_name: bartosz-lauks-projekt-indywidualny-nginx-dev-local
+    ports:
+      - '9090:80'
+    volumes:
+      - bartosz-lauks-projekt-indywidualny-api-vendor-sync:/app/vendor
+      - bartosz-lauks-projekt-indywidualny-api-app-sync:/app
+
+volumes:
+  bartosz-lauks-projekt-indywidualny-api-vendor-sync:
+    external: true
+  bartosz-lauks-projekt-indywidualny-api-app-sync:
+    external: true
