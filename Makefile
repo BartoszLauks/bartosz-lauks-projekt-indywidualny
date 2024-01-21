@@ -73,3 +73,6 @@ execphp:
 
 execdb:
 	docker-compose exec bartosz-lauks-projekt-indywidualny-mysql bash
+
+restoreData:
+	cat backup.sql | docker exec -i bartosz-lauks-projekt-indywidualny-mysql-dev /usr/bin/mysql -u root bartosz-lauks-projekt-indywidualny_dev
