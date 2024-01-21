@@ -1,0 +1,57 @@
+{% extends 'Header.html.twig' %}
+
+{% block title %}You'r Tasks{% endblock %}
+
+{% block body %}
+    <div class="center-bar-test">
+        <h4>Your tasks to complete</h4>
+    </div>
+
+    {% if tasks|default %}
+        {% set index = previous + 10 %}
+        {% for task in tasks %}
+            {% set index = 1 + index %}
+            <div class="card">
+                <p>{{ index }}.</p>
+                <h5 class="card-header"> Title : {{ task.title }}</h5>
+                <div class="card-body">
+                    <p class="card-text">Description : {{ task.description|raw }}</p>
+                    <p class="card-text">Priority : {{ task.priority }}</p>
+{#                    <p class="card-title status-{{ test.status }}">Priority : {{ task.priority }}</p>#}
+{#                    <p class="card-text">Type : {{ test.type }}</p>#}
+                    <p class="card-text status-ERROR"><small class="text-muted">Deadline at : {{ task.deadline|date("F jS \\a\\t g:ia") }}</small></p>
+                    <p class="card-text"><small class="text-muted">Task added at : {{ task.createdAt|date("F jS \\a\\t g:ia") }}</small></p>
+                    <p class="card-text"><small class="text-muted">Task updated at : {{ task.updatedAt|date("F jS \\a\\t g:ia") }}</small></p>
+{#                    {% if is_granted('ROLE_ADMIN') %}#}
+{#                        <p class="card-text"><small class="text-muted">By : {{ test.user.name }} {{ test.user.surname }} <a href="{{ path('app_dashboard_user_tests', { uuid : test.user.uuid}) }}">({{ test.user.email }})</a></small></p>#}
+{#                    {% else %}#}
+{#                        <p class="card-text"><small class="text-muted">By : {{ test.user.name }} {{ test.user.surname }} ({{ test.user.email }})</small></p>#}
+{#                    {% endif %}#}
+                    <a href="{{ path('app_task_finish', { id : task.id }) }}">
+                        <button class="btn btn-primary">Done</button>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="center-bar-warning">
+            <h4>
+                You have no tasks at the moment</h4>
+        </div>
+    {% endif %}
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if previous >= 0 %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ path('app_task_index', { offset: previous }) }}">Previous</a>
+                </li>
+            {% endif %}
+            {% if next < tasks|length %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ path('app_task_index', { offset: next }) }}">Next</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endblock %}

@@ -217,9 +217,9 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto">
                     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" href="{{ path('app_bfs_algorithm_index') }}">BFS</a>#}
-{#                        </li>#}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_task_index') }}">Task</a>
+                        </li>
 {#                        <li class="nav-item">#}
 {#                            <a class="nav-link" href="{{ path('app_dfs_algorithm_index') }}">DFS</a>#}
 {#                        </li>#}
@@ -277,7 +277,7 @@
                     {% endif %}
                 </ul>
                 {% if is_granted('ROLE_ADMIN') %}
-                    <form class="form-inline my-2 my-lg-0" action="{# {{ path('app_search') }} #} ">
+                    <form class="form-inline my-2 my-lg-0" action="{{ path('app_search_index') }}">
                         <input class="form-control mr-sm-2" type="search" id="search-text" required name="search-text" placeholder="Search" aria-label="Search">
                         <button class="btn btn-primary" type="submit">Search</button>
                     </form>

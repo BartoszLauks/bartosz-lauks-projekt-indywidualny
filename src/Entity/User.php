@@ -75,9 +75,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $status = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $deadline = null;
-
     public function __construct()
     {
         $this->tasks = new ArrayCollection();
@@ -338,18 +335,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setStatus(string $status): static
     {
         $this->status = $status;
-
-        return $this;
-    }
-
-    public function getDeadline(): ?\DateTimeImmutable
-    {
-        return $this->deadline;
-    }
-
-    public function setDeadline(\DateTimeImmutable $deadline): static
-    {
-        $this->deadline = $deadline;
 
         return $this;
     }
