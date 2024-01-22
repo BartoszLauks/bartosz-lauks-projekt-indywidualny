@@ -220,36 +220,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('app_task_index') }}">Task</a>
                         </li>
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" href="{{ path('app_dfs_algorithm_index') }}">DFS</a>#}
-{#                        </li>#}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" href="{{ path('app_dijkstra_algorithm_index') }}">Dijkstra</a>#}
-{#                        </li>#}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" href="{{ path('app_kruskal_algorithm_index') }}">Kruskal</a>#}
-{#                        </li>#}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" href="{{ path('app_prim_algorithm_index') }}">Prim</a>#}
-{#                        </li>#}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" href="{{ path('app_topological_sorting_algorithm_index') }}">Topological Sorting</a>#}
-{#                        </li>#}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" href="{{ path('app_bellman_ford_algorithm_index') }}">Bellman Ford</a>#}
-{#                        </li>#}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" href="{{ path('app_floyd_warshall_algorithm_index') }}">Floyd Warshall</a>#}
-{#                        </li>#}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" href="{{ path('app_johnson_algorithm_index') }}">Johnson</a>#}
-{#                        </li>#}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" href="{{ path('app_fleury_algorithm_index') }}">Fleury</a>#}
-{#                        </li>#}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" href="{{ path('app_dashboard_tests') }}">My Tests</a>#}
-{#                        </li>#}
                     {% endif %}
                     {% if is_granted('ROLE_ADMIN') %}
                         <li class="nav-item dropdown">
@@ -257,8 +227,6 @@
                                 Admin options
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-{#                                <a class="dropdown-item" href="{{ path('app_dashboard_all_tests') }}">All Tests</a>#}
-{#                                <div class="dropdown-divider"></div>#}
                                 <a class="dropdown-item" href="{{ path('app_admin') }}">Admin panel</a>
                             </div>
                         </li>
@@ -271,9 +239,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('app_login') }}">Sign in</a>
                         </li>
-{#                        <li>#}
-{#                            <a class="nav-link" href="{{ path('app_register') }}">Sign up !</a>#}
-{#                        </li>#}
                     {% endif %}
                 </ul>
                 {% if is_granted('ROLE_ADMIN') %}
@@ -322,18 +287,9 @@
                         <h5 class="text-uppercase">Links</h5>
 
                         <ul class="list-unstyled mb-0">
-{#                            <li>#}
-{#                                <a href="https://www.wozna.org/" target="_blank" class="text-white">Promotor</a>#}
-{#                            </li>#}
-{#                            <li>#}
-{#                                <a href="https://www.ujd.edu.pl/" target="_blank" class="text-white">Uczelnia</a>#}
-{#                            </li>#}
-{#                            <li>#}
-{#                                <a href="http://www.wnspt.ujd.edu.pl/" target="_blank" class="text-white">Wydział</a>#}
-{#                            </li>#}
-{#                            <li>#}
-{#                                <a href="{{ path('app_dedication') }}" class="text-white">Dedykacja</a>#}
-{#                            </li>#}
+                            <li>
+                                <a href="https://www.ujd.edu.pl/" target="_blank" class="text-white">Uczelnia</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
